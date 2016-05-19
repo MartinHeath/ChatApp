@@ -1,0 +1,23 @@
+.responseContainer{
+    color: blue;
+    border-style: solid;
+    border-color: black;
+    padding: 3px;
+}    
+
+#all{
+    color: black;
+}
+
+.discussionList{
+    margin: auto;
+}
+li{
+    padding: 2px;
+    margin: auto;
+    border-style: none;
+}
+li:hover{
+    border-style: dotted;
+    cursor: pointer;
+}
