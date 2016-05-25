@@ -1,45 +1,60 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>ChatApp - The choice of champions</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="/css/main.css"/>
-    <script src="/js/sockjs-0.3.4.js"></script>
-    <script src="/js/stomp.js"></script>
-    <script src="/js/main.js" ></script>
-</head>
-<body onload="disconnect()">
-<noscript><h2 style="color: #ff0000">An error has occurred! Oh deary me. Please check that your browsers supports JavaScript.</h2></noscript>
-<div>
-    <div id="navs">
-        <label id="nameLabel">What is your name?</label><input type="text" id="name" />
-        <button id="connect" onclick="connect();">Connect</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
-    </div>
-    <div id="conversationDiv">
-        <label>Enter text: </label><textarea id="msg"></textarea>
-        <br>
-        <button id="sendData" onclick="sendData();">Send</button>
-        <hr>
-        <br>
-        <div id="Discussions">
-            <ul class="discussionList">
-                <li id="all">all</li>
-            </ul>
-            <br>
-            <input type="text" id="recep" placeholder="Add private discussion by enterin recipient name"/><button id="addDisc">add discussion</button>
-            <label>
-        </div>
-        <br>
-        <div id="response">
-            <p id="curChat"></p>
-            <div class="responseContainer" id="all">
+    <head>
+        <title>ChatApp - The choice of champions</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="/css/main.css"/>
+        <script src="/js/sockjs-0.3.4.js"></script>
+        <script src="/js/stomp.js"></script>
+        <script src="/js/main.js" ></script>
+    </head>
+    <body onload="disconnect()">
+        <noscript><h2 style="color: #ff0000">An error has occurred! Oh deary me. Please check that your browsers supports JavaScript.</h2></noscript>
+        <div class="wrapper">
+            <div id="navs">
+                <label id="nameLabel">What is your name?</label><input type="text" id="name" />
+                <br>
+                <button id="connect" onclick="connect();">Connect</button>
+                <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
+            </div>
+            
+            <div id="conversationDiv">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-sm-3" id="navCol">
+                            <div class="sidebar-nav">
+                                <div class="navbar navbar-default" role="navigation" id="navigation">
+                                    <div class="navbar-collapse collapse sidebar-navbar-collapse" id="Discussions">
+                                        <ul class="nav navbar-nav" id="discussionList">
+                                            <li  id="all">all</li>
+                                        </ul>
+                                        <br>
+                                        <div id="discInput">
+                                            <input type="text" id="recep" placeholder="Add private discussion"/>
+                                            <br>
+                                            <button id="addDisc">add discussion</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-lg-9 col-lg-9" id="msgCol">
+                            <div id="response">
+                                <p id="curChat"></p>
+                                <div class="responseContainer" id="all"></div>
+                            </div>
+                            <div id="input">
+                                <label>Enter text: </label><input type="text" id="msg" />
+                                <button id="sendData" onclick="sendData();">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-</body>
+    </body>
 </html>

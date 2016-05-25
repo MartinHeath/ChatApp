@@ -42,7 +42,8 @@ var recipient = "all";
                 var id = "id='" + name +"'";
                  $("#response").append("<div class='responseContainer' " + id + ">Chat opened with: "+name+"</div>");
                  $("#"+name+".responseContainer").hide();
-                 $(".discussionList").append('<li id='+ name +'>'+ name +' <Button class=del>DELETE</Button></li>');
+                 var del= '<Button class="btn btn-default" id="del"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </Button>';
+                 $("#discussionList").append('<li id='+ name +'>'+ name + del +'</li>');
                 
                 //showDiv(name);
             }
@@ -69,7 +70,7 @@ var recipient = "all";
             $("#all.responseContainer").append("<br>");
             $("#all.responseContainer").append(document.createTextNode(message));
             $("#all.responseContainer").css("wordWrap: 'breakWord;");
-            $(".discussionList #all").css({'color':'green'});
+            $("#discussionList #all").css({'color':'green'});
         }
         //function that shows only current div
         function showDiv(div){
@@ -88,7 +89,7 @@ var recipient = "all";
             $("#"+reci+".responseContainer").append("<br>");
             $("#"+reci+".responseContainer").append(document.createTextNode(message));
             $("#"+reci+".responseContainer").css({'wordWrap':'breakWord'});
-            $(".discussionList #"+reci).css({'color':'green'});   
+            $("#discussionList #"+reci).css({'color':'green'});   
         }
         $(document).ready(function () {
             $("#curChat").text("Current chat: all");
@@ -103,13 +104,14 @@ var recipient = "all";
                 var recipient = $("#recep").val();
                 //The input must not be empty, it must not already exist and it cannot be the users own name.
                 if(recipient != "" && $("#"+recipient+".responseContainer").length == 0 && recipient != user){
-                    $(".discussionList").append('<li id='+ recipient +'>'+ recipient +' <Button class=del>DELETE</Button></li>');
+                    var del = '<Button class="btn btn-default" id="del"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </Button>';
+                    $("#discussionList").append('<li id='+ recipient +'>'+ recipient + del +'</li>');
                     var id = "id='" + recipient +"'";
                     $("#response").append("<div class='responseContainer' " + id + ">New Chat opened with user: "+recipient+"</div>");
                     showDiv(recipient);
                 }
             });
-            $("ul").on("click",".del",function (){
+            $("ul").on("click","#del",function (){
                 console.log("delete");
                 $(this).parent().remove();
                 console.log("#"+$(this).parent().attr('id')+".responseContainer");
